@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { CheckCircle2, Clock, Cog, Gauge, Shield, Ticket } from "lucide-react";
+import { CheckCircle2, Clock, Cog, Gauge, Headset, Shield, Ticket } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -109,6 +109,58 @@ const devopsMetrics: SlaMetric[] = [
     target: "Expected: Critical pipeline or infrastructure incidents acknowledged within 2 hours (during working hours). Resolved in 2 business days",
     note: "**Pending from Rethink",
     icon: Cog,
+  },
+];
+
+const helpdeskMetrics: SlaMetric[] = [
+  {
+    label: "P1 Incident Response",
+    hint: "The difference between the time an incident ticket is submitted and the time a member accepts for resolution.",
+    target: "Expected: 15 min",
+    note: "**Pending from Rethink",
+    icon: Headset,
+  },
+  {
+    label: "P1 Incident Resolution",
+    hint: "The difference between the time the member accepts a ticket for resolution and the time the ticket resolves the incident or provides a workaround.",
+    target: "Expected: 4 hours",
+    note: "**Pending from Rethink",
+    icon: Headset,
+  },
+  {
+    label: "P2 Incident Response",
+    hint: "The difference between the time an incident ticket is submitted and the time a member accepts for resolution.",
+    target: "Expected: 60 min",
+    note: "**Pending from Rethink",
+    icon: Headset,
+  },
+  {
+    label: "P2 Incident Resolution",
+    hint: "The difference between the time the member accepts a ticket for resolution and the time the ticket resolves the incident or provides a workaround.",
+    target: "Expected: 3 business days",
+    note: "**Pending from Rethink",
+    icon: Headset,
+  },
+  {
+    label: "P3 Incident Response",
+    hint: "The difference between the time an incident ticket is submitted and the time a member accepts for resolution.",
+    target: "Expected: 4 Business hours",
+    note: "**Pending from Rethink",
+    icon: Headset,
+  },
+  {
+    label: "P3 Incident Resolution",
+    hint: "The difference between the time the member accepts a ticket for resolution and the time the ticket resolves the incident or provides a workaround.",
+    target: "Expected: 5 Business days",
+    note: "**Pending from Rethink",
+    icon: Headset,
+  },
+  {
+    label: "P4 Incident Response",
+    hint: "The difference between the time an incident ticket is submitted and the time a member accepts for resolution.",
+    target: "Expected: 8 Business hours",
+    note: "**Pending from Rethink",
+    icon: Headset,
   },
 ];
 
@@ -387,6 +439,14 @@ export function ItopsPanel({
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {devopsMetrics.map((metric) => (
+            <SlaMetricCard key={metric.label} metric={metric} />
+          ))}
+        </div>
+        <div className="mb-4 mt-8">
+          <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">HelpDesk</h4>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {helpdeskMetrics.map((metric) => (
             <SlaMetricCard key={metric.label} metric={metric} />
           ))}
         </div>

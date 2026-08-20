@@ -169,3 +169,13 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.03em;
 }
+
+@utility sla-agreed {
+  background: linear-gradient(135deg, color-mix(in oklch, var(--success) 12%, transparent) 0%, color-mix(in oklch, var(--success) 4%, transparent) 100%);
+  border-color: color-mix(in oklch, var(--success) 25%, var(--border));
+}
+
+@utility sla-dependency {
+  background: linear-gradient(135deg, color-mix(in oklch, var(--warning) 12%, transparent) 0%, color-mix(in oklch, var(--warning) 4%, transparent) 100%);
+  border-color: color-mix(in oklch, var(--warning) 25%, var(--border));
+}

@@ -269,20 +269,26 @@ export function KpiCards({
         <h3 className="mb-4 text-sm font-semibold tracking-wide text-muted-foreground">
           Rethink SLAs
         </h3>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {rethinkSla.map((kpi) => (
-            <div
-              key={kpi.label}
-              className="flex h-full flex-col rounded-lg border border-border/60 bg-surface/40 p-4"
-            >
-              <KpiCardContent kpi={kpi} />
-            </div>
-          ))}
+        <div className="sla-agreed rounded-lg border p-4">
+          <h4 className="mb-3 text-sm font-semibold text-foreground">Agreed SLAs</h4>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {rethinkSla.map((kpi) => (
+              <div
+                key={kpi.label}
+                className="flex h-full flex-col rounded-lg border border-border/60 bg-surface/40 p-4"
+              >
+                <KpiCardContent kpi={kpi} />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {additionalKpis.map((kpi) => (
-            <StaticKpiCard key={kpi.label} kpi={kpi} />
-          ))}
+        <div className="sla-dependency mt-4 rounded-lg border p-4">
+          <h4 className="mb-3 text-sm font-semibold text-foreground">Can not be tracked - Rethink Dependencies</h4>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {additionalKpis.map((kpi) => (
+              <StaticKpiCard key={kpi.label} kpi={kpi} />
+            ))}
+          </div>
         </div>
       </section>
     </div>
